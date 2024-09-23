@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include "AddressType.h"
 using namespace std;
 int main()
@@ -30,4 +30,4 @@ int main()
 	address.setZipcode(23669);
 	address.print();
 	cout << endl;
-}
+}*/

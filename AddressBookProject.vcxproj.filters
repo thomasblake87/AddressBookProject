@@ -18,9 +18,15 @@
     <ClCompile Include="AddressType.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DateType.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddressType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DateType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -128,9 +128,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AddressType.cpp" />
+    <ClCompile Include="DateType.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddressType.h" />
+    <ClInclude Include="DateType.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

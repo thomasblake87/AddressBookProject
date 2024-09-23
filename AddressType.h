@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 #include <iostream>
 #include <string>
 
@@ -69,4 +69,4 @@ private:
     string city;
     string state;
     int zipcode;
-};
+};*/
