@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 class dateType
 {
 public:
@@ -103,3 +103,4 @@ private:
 	int dyear;
 };
 
+*/

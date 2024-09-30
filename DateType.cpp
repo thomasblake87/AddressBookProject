@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include "DateType.h"
 using namespace std;
 // Program to verify that the modified dateType class is working correctly
@@ -36,4 +36,4 @@ int main()
 	date.setDate(8, 15, 2016);
 	date.print();
 	cout << endl;
-}
+}*/
