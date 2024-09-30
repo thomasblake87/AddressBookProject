@@ -1,4 +1,4 @@
-/*#pragma once
+#pragma once
 #include <iostream>
 #include <string>
 
@@ -61,7 +61,7 @@ public:
     // Print function
     void print() {
         cout << address << endl;
-        cout << city << ", " << state << " " << zipcode << endl;
+        cout << city << " " << state << ", " << zipcode << endl;
     }
 
 private:
@@ -69,4 +69,4 @@ private:
     string city;
     string state;
     int zipcode;
-};*/
+};

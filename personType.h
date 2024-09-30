@@ -1,15 +1,16 @@
 #pragma once
-#import <iomanip>
-#import <iostream>
+#include <iomanip>
+#include <string>
+#include <iostream>
 using namespace std;
 
 class personType
 {
 private:
-	string firstName();
-	string lastName();
+	string firstName;
+	string lastName;
 public:
-	personType(string fName = "", string lName = "") : firstName(fName), lastName(lName);
+	personType(string fName = "", string lName = "") : firstName(fName), lastName(lName) {};
 
 	void setFirstName(string fName) {
 		firstName = fName;
@@ -22,9 +23,11 @@ public:
 		return firstName;
 	}
 	string getLastName() {
-		return lastName
+		return lastName;
 	}
 
-	void print();
+	void print() {
+		cout << firstName << " " << lastName << endl;
+	}
 };
 

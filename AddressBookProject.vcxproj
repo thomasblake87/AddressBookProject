@@ -127,9 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AddressType.cpp" />
     <ClCompile Include="extPersonType.cpp" />
-    <ClCompile Include="personType.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddressType.h" />

@@ -1,4 +1,7 @@
-/*#pragma once
+#pragma once
+#include <iomanip>
+#include <iostream>
+using namespace std;
 class dateType
 {
 public:
@@ -13,7 +16,7 @@ public:
 			dyear = y;
 		}
 		else {
-			std::cout << "Date invalid, setting to 1/1/1900" << std::endl;
+			cout << "Date invalid, setting to 1/1/1900" << endl;
 			d = 1;
 			m = 1;
 			dyear = 1900;
@@ -23,7 +26,7 @@ public:
 			dmonth = m;
 		}
 		else {
-			std::cout << "Date invalid, setting to 1/1/1900" << std::endl;
+			cout << "Date invalid, setting to 1/1/1900" << endl;
 			d = 1;
 			dyear = 1900;
 			dmonth = 1;
@@ -42,7 +45,7 @@ public:
 			dday = d;
 		}
 		else {
-			std::cout << "Date invalid, setting to 1/1/1900" << std::endl;
+			cout << "Date invalid, setting to 1/1/1900" << endl;
 			dday = 1;
 			dmonth = 1;
 			dyear = 1900;
@@ -94,7 +97,7 @@ public:
 
 	//Print
 	void print() {
-		std::cout << dmonth << "-" << dday << "-" << dyear << std::endl;
+		cout << dmonth << "-" << dday << "-" << dyear << endl;
 	}
 
 private:
@@ -103,4 +106,3 @@ private:
 	int dyear;
 };
 
-*/
