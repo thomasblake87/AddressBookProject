@@ -29,6 +29,7 @@ public:
         string cit, string sta, int zip, string phone, string relat) :
         personType(fName, lName), birthDate(d, m, y), address(str, cit, sta, zip), phoneNumber(phone), relationship(relat) {}
 
+    //Setters
     void setPhoneNumber(string phone) {
         phoneNumber = phone;
     }
@@ -41,6 +42,7 @@ public:
         }
     }
 
+    //Getters
     string getPhoneNumber() {
         return phoneNumber;
     }
@@ -53,6 +55,7 @@ public:
         return birthDate.getMonth();
     }
 
+    //Print
     void print() {
         personType::print();
         birthDate.print();

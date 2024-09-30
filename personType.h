@@ -10,6 +10,7 @@ private:
 	string firstName;
 	string lastName;
 public:
+	//Constructor
 	personType(string fName = "", string lName = "") : firstName(fName), lastName(lName) {};
 
 	void setFirstName(string fName) {
