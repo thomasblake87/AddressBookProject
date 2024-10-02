@@ -16,7 +16,6 @@ public:
 			dyear = y;
 		}
 		else {
-			cout << "Date invalid, setting to 1/1/1900" << endl;
 			d = 1;
 			m = 1;
 			dyear = 1900;
@@ -26,7 +25,6 @@ public:
 			dmonth = m;
 		}
 		else {
-			cout << "Date invalid, setting to 1/1/1900" << endl;
 			d = 1;
 			dyear = 1900;
 			dmonth = 1;
@@ -45,7 +43,6 @@ public:
 			dday = d;
 		}
 		else {
-			cout << "Date invalid, setting to 1/1/1900" << endl;
 			dday = 1;
 			dmonth = 1;
 			dyear = 1900;
