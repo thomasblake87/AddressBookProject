@@ -24,10 +24,46 @@ int main() {
     addressBook.initEntry();
 
     int choice;
-    choice = showMenu();
+    bool five = false;
+    while (five == false) {
+        choice = showMenu();
 
-    if (choice == 1) {
-        cout << "Displaying all entries:" << endl;
-        addressBook.print();
+        if (choice == 1) {
+            cout << endl << "Displaying all entries:" << endl << endl;
+            addressBook.print();
+        }
+
+        else if (choice == 2) {
+            string lName;
+            cout << endl;
+            cout << "Enter the last name of the person: ";
+            cin >> lName;
+            cout << endl;
+            addressBook.findPerson(lName);
+        }
+
+        else if (choice == 3) {
+            int month;
+            cout << endl;
+            cout << "Enter the birth month (as a number): ";
+            cin >> month;
+            cout << endl;
+            addressBook.findBirthdays(month);
+        }
+        else if (choice == 4) {
+            string relationship;
+            cout << endl;
+            cout << "Enter the relationship you would like to find: ";
+            cin >> relationship;
+            cout << endl;
+            addressBook.findRelations(relationship);
+        }
+        else if (choice == 5) {
+            five = true;
+        }
+        else {
+            cout << "Not found" << endl;
+            break;
+        }
     }
 }

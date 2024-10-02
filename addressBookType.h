@@ -2,6 +2,7 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+#include <sstream>
 #include "extPersonType.h"
 #include "personType.h"
 #include "AddressType.h"
@@ -24,21 +25,30 @@ public:
     void initEntry() {
         ifstream infile("AddressBookData.txt");
 
-        string fName, lName, phone, relationship, street, city, state;
+        string fName, lName, name, phone, relationship, street, city, state;
+        string date, zips;
         int day, month, year, zip;
 
-        while (getline(infile, fName)) {
-            getline(infile, lName);
-            infile >> day >> month >> year;
-            infile.ignore();
+        while (getline(infile, name)) {
+            //Parse the name
+            istringstream nameStream(name);
+            nameStream >> fName >> lName;
+            getline(infile, date); // Read the entire date as a string
+            // Parse the date
+            istringstream dateStream(date);
+            dateStream >> day >> month >> year;
             getline(infile, street);
             getline(infile, city);
             getline(infile, state);
-            infile >> zip;
-            infile.ignore();
+            getline(infile, zips);  // Read zip as a string
+            // Parse the zip code
+            istringstream zipStream(zips);
+            zipStream >> zip;
             getline(infile, phone);
             getline(infile, relationship);
 
+
+            // Create the person object and add to the address book
             extPersonType person(fName, lName, day, month, year, street, city, state, zip, phone, relationship);
             addEntry(person);
         }
