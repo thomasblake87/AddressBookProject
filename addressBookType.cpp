@@ -3,6 +3,7 @@
 #include <iomanip>
 using namespace std;
 
+//shows the menu
 int showMenu() {
     int choice;
 
@@ -18,7 +19,7 @@ int showMenu() {
 
     return choice;
 }
-
+//main function
 int main() {
     addressBookType addressBook;
     addressBook.initEntry();
