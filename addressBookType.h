@@ -13,15 +13,15 @@ using namespace std;
 class addressBookType
 {
 private:
-    extPersonType addressList[500];  // Array to store extPersonType objects
+    extPersonType addressList[500];  //array
     int length;
     const int maxLength = 500;
 
 public:
-    // Default constructor
+    //constructor
     addressBookType() : length(0) {}
 
-    // Function to initialize entries from a file
+    //initialize entries from file
     void initEntry() {
         ifstream infile("AddressBookData.txt");
 
@@ -30,32 +30,32 @@ public:
         int day, month, year, zip;
 
         while (getline(infile, name)) {
-            //Parse the name
+            //seperate name
             istringstream nameStream(name);
             nameStream >> fName >> lName;
-            getline(infile, date); // Read the entire date as a string
-            // Parse the date
+            getline(infile, date); //read date as string
+            //separate date
             istringstream dateStream(date);
             dateStream >> day >> month >> year;
             getline(infile, street);
             getline(infile, city);
             getline(infile, state);
-            getline(infile, zips);  // Read zip as a string
-            // Parse the zip code
+            getline(infile, zips);  //read zip as string
+            //separate zip code
             istringstream zipStream(zips);
             zipStream >> zip;
             getline(infile, phone);
             getline(infile, relationship);
 
 
-            // Create the person object and add to the address book
+            //create person object, add to addressbook
             extPersonType person(fName, lName, day, month, year, street, city, state, zip, phone, relationship);
             addEntry(person);
         }
         infile.close();
     }
 
-    // Function to add an entry to the address book
+    //add an entry to the address book
     void addEntry(const extPersonType& person) {
         if (length < maxLength) {
             addressList[length] = person;
@@ -66,7 +66,7 @@ public:
         }
     }
 
-    // Function to find a person by last name
+    //find a person by last name
     void findPerson(string lName) {
         bool found = false;
         for (int i = 0; i < length; i++) {
@@ -81,7 +81,7 @@ public:
         }
     }
 
-    // Function to find persons by birth month
+    //find people by birth month
     void findBirthdays(int month) {
         bool found = false;
         for (int i = 0; i < length; i++) {
@@ -95,7 +95,7 @@ public:
         }
     }
 
-    // Function to find persons by relationship
+    //find people by relationship
     void findRelations(string relationship) {
         bool found = false;
         for (int i = 0; i < length; i++) {
@@ -109,7 +109,7 @@ public:
         }
     }
 
-    // Function to print all entries
+    //print
     void print() {
         for (int i = 0; i < length; i++) {
             addressList[i].print();
@@ -117,7 +117,7 @@ public:
         }
     }
 
-    // Function to sort the entries using the insertion sort algorithm
+    //function sort entires insertion point
     void sortEntries() {
         for (int current = 1; current < length; current++) {
             int i = current;
