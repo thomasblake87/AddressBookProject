@@ -56,7 +56,8 @@ public:
     }
 
     string getKey() const {
-        return getLastName() + " " + getFirstName();
+        string key;
+        return key = getFirstName() + " " + getLastName();
     }
 
     //Overload operators
@@ -71,10 +72,6 @@ public:
 
     bool operator>=(const extPersonType& other) const {
         return this->getKey() >= other.getKey();
-    }
-
-    bool operator<(const extPersonType& other) const {
-        return this->getKey() < other.getKey();
     }
 
     //Print

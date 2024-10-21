@@ -36,11 +36,14 @@ int main() {
 
         else if (choice == 2) {
             string lName;
+            string fName;
             cout << endl;
+            cout << "Enter the first name of the person: ";
+            cin >> fName;
             cout << "Enter the last name of the person: ";
             cin >> lName;
             cout << endl;
-            addressBook.findPerson(lName);
+            addressBook.findPerson(lName, fName);
         }
 
         else if (choice == 3) {

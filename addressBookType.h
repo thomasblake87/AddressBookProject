@@ -46,18 +46,24 @@ public:
 
             //create person object, add to addressbook
             extPersonType person(fName, lName, day, month, year, street, city, state, zip, phone, relationship);
-            this->insert(person);
+            addEntry(person);
         }
         infile.close();
     }
 
+    void addEntry(const extPersonType& person) {
+        this->insert(person);
+    }
+
+
     //find a person by last name
-    void findPerson(string lName) const {
+    void findPerson(string lName, string fName) const {
         bool found = false;
+        string key = fName + " " + lName;
         nodeType<extPersonType>* current = this->first;
 
         while (current != nullptr && !found) {
-            if (current->info.getLastName() == lName) {
+            if (current->info.getKey() == key) {
                 current->info.print();
                 found = true;
             }
