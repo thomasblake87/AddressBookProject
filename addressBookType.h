@@ -7,19 +7,15 @@
 #include "personType.h"
 #include "AddressType.h"
 #include "DateType.h"
+#include "orderedLinkedList.h"
 
 using namespace std;
 
-class addressBookType
+class addressBookType : public orderedLinkedList<extPersonType>
 {
-private:
-    extPersonType addressList[500];  //array
-    int length;
-    const int maxLength = 500;
-
 public:
-    //constructor
-    addressBookType() : length(0) {}
+
+    addressBookType() {}
 
     //initialize entries from file
     void initEntry() {
@@ -50,31 +46,22 @@ public:
 
             //create person object, add to addressbook
             extPersonType person(fName, lName, day, month, year, street, city, state, zip, phone, relationship);
-            addEntry(person);
+            this->insert(person);
         }
         infile.close();
     }
 
-    //add an entry to the address book
-    void addEntry(const extPersonType& person) {
-        if (length < maxLength) {
-            addressList[length] = person;
-            ++length;
-        }
-        else {
-            cout << "Address book is full" << endl;
-        }
-    }
-
     //find a person by last name
-    void findPerson(string lName) {
+    void findPerson(string lName) const {
         bool found = false;
-        for (int i = 0; i < length; i++) {
-            if (addressList[i].getLastName() == lName) {
-                addressList[i].print();
+        nodeType<extPersonType>* current = this->first;
+
+        while (current != nullptr && !found) {
+            if (current->info.getLastName() == lName) {
+                current->info.print();
                 found = true;
-                break;
             }
+            current = current->link;
         }
         if (!found) {
             cout << "Person not found" << endl;
@@ -82,13 +69,16 @@ public:
     }
 
     //find people by birth month
-    void findBirthdays(int month) {
+    void findBirthdays(int month) const {
         bool found = false;
-        for (int i = 0; i < length; i++) {
-            if (addressList[i].getBirthMonth() == month) {
-                addressList[i].print();
+        nodeType<extPersonType>* current = this->first;
+
+        while (current != nullptr) {
+            if (current->info.getBirthMonth() == month) {
+                current->info.print();
                 found = true;
             }
+            current = current->link;
         }
         if (!found) {
             cout << "No entries found for the given month" << endl;
@@ -96,13 +86,16 @@ public:
     }
 
     //find people by relationship
-    void findRelations(string relationship) {
+    void findRelations(string relationship) const {
         bool found = false;
-        for (int i = 0; i < length; i++) {
-            if (addressList[i].getRelationship() == relationship) {
-                addressList[i].print();
+        nodeType<extPersonType>* current = this->first;
+
+        while (current != nullptr) {
+            if (current->info.getRelationship() == relationship) {
+                current->info.print();
                 found = true;
             }
+            current = current->link;
         }
         if (!found) {
             cout << "No entries found for the given relationship" << endl;
@@ -111,28 +104,12 @@ public:
 
     //print
     void print() {
-        for (int i = 0; i < length; i++) {
-            addressList[i].print();
-            cout << endl;
-        }
-    }
+        nodeType<extPersonType>* current = this->first;
 
-    //function sort entires insertion point
-    void sortEntries() {
-        for (int current = 1; current < length; current++) {
-            int i = current;
-            bool placeFound = false;
-            while (i > 0 && !placeFound) {
-                if (addressList[i].getLastName() < addressList[i - 1].getLastName()) {
-                    extPersonType temp = addressList[i];
-                    addressList[i] = addressList[i - 1];
-                    addressList[i - 1] = temp;
-                    i--;
-                }
-                else {
-                    placeFound = true;
-                }
-            }
+        while (current != nullptr) {
+            current->info.print();
+            cout << endl;
+            current = current->link;
         }
     }
 };

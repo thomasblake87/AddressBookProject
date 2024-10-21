@@ -20,10 +20,10 @@ public:
 		lastName = lName;
 	}
 
-	string getFirstName() {
+	string getFirstName() const {
 		return firstName;
 	}
-	string getLastName() {
+	string getLastName() const {
 		return lastName;
 	}
 

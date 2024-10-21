@@ -55,6 +55,28 @@ public:
         return birthDate.getMonth();
     }
 
+    string getKey() const {
+        return getLastName() + " " + getFirstName();
+    }
+
+    //Overload operators
+
+    bool operator==(const extPersonType& other) {
+        return this->getKey() == other.getKey();
+    }
+
+    bool operator!=(const extPersonType& other) {
+        return !(*this == other);
+    }
+
+    bool operator>=(const extPersonType& other) const {
+        return this->getKey() >= other.getKey();
+    }
+
+    bool operator<(const extPersonType& other) const {
+        return this->getKey() < other.getKey();
+    }
+
     //Print
     void print() {
         personType::print();
