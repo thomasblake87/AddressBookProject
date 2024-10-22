@@ -13,7 +13,9 @@ int showMenu() {
     cout << "2 – Display an entry by a person’s name." << endl;
     cout << "3 – Display all entries with a given birth month." << endl;
     cout << "4 – Display all entries with a given relationship tag (Business, Friend, Family)." << endl;
-    cout << "5 – Quit" << endl;
+    cout << "5 - Add a new entry." << endl;
+    cout << "6 - Delete an entry based on name." << endl;
+    cout << "7 – Quit" << endl;
     cout << "Enter your choice: ";
     cin >> choice;
 
@@ -25,8 +27,8 @@ int main() {
     addressBook.initEntry();
 
     int choice;
-    bool five = false;
-    while (five == false) {
+    bool seven = false;
+    while (seven == false) {
         choice = showMenu();
 
         if (choice == 1) {
@@ -62,8 +64,13 @@ int main() {
             cout << endl;
             addressBook.findRelations(relationship);
         }
+
         else if (choice == 5) {
-            five = true;
+            addressBook.addStrings();
+        }
+
+        else if (choice == 7) {
+            seven = true;
         }
         else {
             cout << "Not found" << endl;
