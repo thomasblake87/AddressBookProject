@@ -138,8 +138,6 @@ public:
         cout << "\nEnter your relationship with the person (available answers are: Friend, Business, or Family): ";
         cin >> relationship;
 
-        ofstream outFile("AddressBookData.txt");
-
         extPersonType person(fName, lName, day, month, year, street, city, state, zip, phone, relationship);
         this->addEntry(person);
     }
