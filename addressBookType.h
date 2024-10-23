@@ -108,6 +108,7 @@ public:
         }
     }
 
+    //Add a person to the list
     void addStrings(){
 
         nodeType<extPersonType>* current = this->first;
@@ -141,15 +142,57 @@ public:
 
         extPersonType person(fName, lName, day, month, year, street, city, state, zip, phone, relationship);
         this->addEntry(person);
+    }
 
-        outFile << fName << " " << lName << endl;
-        outFile << month << " " << day << " " << year << endl;
-        outFile << street << endl << city << endl << state << endl;
-        outFile << zip << endl;
-        outFile << phone << endl;
-        outFile << relationship << endl;
+    //Delete a person from the list
+    void deleteIt() {
+        string fName, lName;
+        cout << "Enter the first name of the person you would like to delete: ";
+        cin >> fName;
+        cout << "\nEnter the last name of the person you would like to delete: ";
+        cin >> lName;
+
+        bool found = false;
+        string key = fName + " " + lName;
+        nodeType<extPersonType>* current = this->first;
+        extPersonType deleteItem;
+
+        while (current != nullptr && !found) {
+            if (current->info.getKey() == key) {
+                deleteItem = current->info;
+                found = true;
+                cout << "Person delted." << endl;
+            }
+            current = current->link;
+        }
+        if (!found) {
+            cout << "Person not found" << endl;
+            return;
+        }
+
+        this->deleteNode(deleteItem);
+    }
+
+    //Write the list to the file
+    void writeToFile() {
+        ofstream outFile("AddressBookData.txt");
+        nodeType<extPersonType>* current = this->first;
+
+        while (current != nullptr) {
+            extPersonType person = current->info;
+            outFile << person.getFirstName() << " " << person.getLastName() << endl;
+            outFile << person.getBirthMonth() << " " << person.getBirthDay() << " " << person.getBirthYear() << endl;
+            outFile << person.getStreet() << endl;
+            outFile << person.getTheCity() << endl;
+            outFile << person.getTheState() << endl;
+            outFile << person.getTheZip() << endl;
+            outFile << person.getPhoneNumber() << endl;
+            outFile << person.getRelationship() << endl;
+            current = current->link;
+        }
 
         outFile.close();
+        cout << "Address book saved to file." << endl;
     }
 
     //print

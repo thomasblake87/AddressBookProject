@@ -58,6 +58,10 @@ public:
         return zipcode;
     }
 
+    string getStreet() {
+        return address;
+    }
+
     // Print function
     void print() {
         cout << address << endl;

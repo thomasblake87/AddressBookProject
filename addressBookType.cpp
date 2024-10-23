@@ -69,8 +69,13 @@ int main() {
             addressBook.addStrings();
         }
 
+        else if (choice == 6) {
+            addressBook.deleteIt();
+        }
+
         else if (choice == 7) {
             seven = true;
+            addressBook.writeToFile();
         }
         else {
             cout << "Not found" << endl;

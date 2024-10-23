@@ -8,7 +8,7 @@
 using namespace std;
 
 class extPersonType :
-    public personType
+    public personType, public dateType, public addressType
 {
 private:
     addressType address;
@@ -58,6 +58,30 @@ public:
     string getKey() const {
         string key;
         return key = getFirstName() + " " + getLastName();
+    }
+
+    int getBirthDay() {
+        return birthDate.getDay();
+    }
+
+    int getBirthYear() {
+        return birthDate.getYear();
+    }
+
+    string getStreet() {
+        return address.getStreet();
+    }
+
+    string getTheCity() {
+        return address.getCity();
+    }
+
+    string getTheState() {
+        return address.getState();
+    }
+
+    int getTheZip() {
+        return address.getZipcode();
     }
 
     //Overload operators
