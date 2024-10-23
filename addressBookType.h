@@ -159,7 +159,7 @@ public:
             if (current->info.getKey() == key) {
                 deleteItem = current->info;
                 found = true;
-                cout << "Person delted." << endl;
+                cout << "Person deleted." << endl;
             }
             current = current->link;
         }
